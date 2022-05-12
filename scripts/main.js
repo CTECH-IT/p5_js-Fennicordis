@@ -23,8 +23,8 @@ function render(percent) {
 
   beginShape();
   for (let v of shape) {
-    const a = map(percent, 0, 1, 0, TWO_PI * 2);
-    const r = map(sin(a), -1, 1, height / 80, height / 40);
+    const a = map(percent, 0, 1, 1, TWO_PI * 2);
+    const r = map(sin(a), -2, 1, height / 80, height / 40);
     vertex(r * v.x, r * v.y);
 
   }
@@ -33,7 +33,7 @@ function render(percent) {
   if (percent < 0.5) {
     const a = map(percent, 1, 0.5, 0, TWO_PI);
     const x = 20 * pow(sin(a), 3);
-    const y = (8 * cos(a) - 10 * cos(6 * a) - 2 * cos(3 * a) - cos(4 * a));
+    const y = (8 * cos(a) - 10 * cos(6 * a) - 3 * cos(2 * a) + cos(5 * a));
     shape.push(createVector(x, y));
   } else {
     shape.splice(0, 1);
