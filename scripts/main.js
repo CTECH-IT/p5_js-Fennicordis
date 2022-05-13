@@ -18,25 +18,24 @@ function render(percent) {
   background(0);
   translate(width / 2, height / 2);
   stroke(100, 0, 255);
-  strokeWeight(10);
+  strokeWeight(7);
   fill(100, 0, 255);
 
   beginShape();
   for (let v of shape) {
-    const a = map(percent, 0, 1, 1, TWO_PI * 2);
-    const r = map(sin(a), -2, 1, height / 80, height / 40);
+    const a = map(percent, 0, 0.5, -0.1, TWO_PI * -0.8);
+    const r = map(sin(a), -6, 0.6, height / 100, height / 60);
     vertex(r * v.x, r * v.y);
-
   }
   endShape();
 
   if (percent < 0.5) {
     const a = map(percent, 1, 0.5, 0, TWO_PI);
-    const x = 20 * pow(sin(a), 3);
-    const y = (8 * cos(a) - 10 * cos(6 * a) - 3 * cos(2 * a) + cos(5 * a));
-    shape.push(createVector(x, y));
+    const x = 17 * pow(sin(a), 4);
+    const y = (9 * cos(a) - 6 * cos(3 * a) - 3 * cos(a));
+    shape.push(createVector(x * 2, y * 2));
   } else {
-    shape.splice(0, 1);
+    shape.splice(60, 2);
   }
 
 }
