@@ -23,8 +23,8 @@ function render(percent) {
 
   beginShape();
   for (let v of shape) {
-    const a = map(percent, 0, 0.5, -0.1, TWO_PI * -0.8);
-    const r = map(sin(a), -6, 0.6, height / 100, height / 60);
+    const a = map(percent, 0, 1, 0, TWO_PI);
+    const r = map(sin(a), -3, 0.8, height / 100, height / 60);
     vertex(r * v.x, r * v.y);
   }
   endShape();
